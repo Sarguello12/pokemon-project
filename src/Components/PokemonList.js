@@ -8,6 +8,7 @@ const PokemonList = () => {
   useEffect(() => {
     getPokemon().then((pokemonData) => {
       setPokemon(pokemonData);
+      // console.log(pokemonData);
     });
     // Notice the empty array following the useEffect call. Note that the useEffect runs for both a component mounting and updating.
     // If you do not pass a dependency array into useEffect it will continuously update. If you pass an empty dependency array into the call it will only run once on component mount.
@@ -16,7 +17,7 @@ const PokemonList = () => {
   // state updates happen asynchronously, meaning that updating state does not stop the rest of the application from rendering and running smoothly.
   // So to fix this error, we have to do something called short-circuiting(&&).
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
-
+  console.log(pokemon);
   return (
     <div>
       <div>
