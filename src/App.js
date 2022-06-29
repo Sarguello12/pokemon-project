@@ -1,10 +1,25 @@
 function App() {
-  const pokemonUrl = "https://pokeapi.co/api/v2/pokemon/mudkip/";
+  const fetchPokemonDetails = (pokemon) => {
+    let url = pokemon.url;
 
-  fetch(pokemonUrl)
-    .then((response) => response.json())
-    .then((mudkip) => console.log(mudkip))
-    .catch((error) => console.log(error));
+    fetch(url)
+      .then((response) => response.json())
+      .then((pokemonData) => {
+        console.log(pokemonData);
+      });
+  };
+
+  const fetchKantoPokemon = () => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+      .then((response) => response.json())
+      .then((kantoPokemon) => {
+        kantoPokemon.results.forEach((pokemon) => {
+          fetchPokemonDetails(pokemon);
+        });
+      });
+  };
+
+  console.log(fetchKantoPokemon());
 
   return (
     <div>
