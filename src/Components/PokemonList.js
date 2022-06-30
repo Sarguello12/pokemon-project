@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
 import { getPokemon, getPokemonDetails } from "../services/GetPokemon";
+import "./PokemonList.css";
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -31,7 +32,7 @@ const PokemonList = () => {
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
   return (
     <div>
-      <div>
+      <div className="pokemon-container">
         {pokemon &&
           pokemon.map((pokemon, index) => {
             return <PokemonCard key={index} {...pokemon} />;
