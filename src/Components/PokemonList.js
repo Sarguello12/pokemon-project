@@ -5,7 +5,7 @@ import { getPokemon, getPokemonDetails } from "../services/GetPokemon";
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, isLoading] = useState(true);
-  const URL = "https://pokeapi.co/api/v2/pokemon?limit=10";
+  const URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -32,12 +32,15 @@ const PokemonList = () => {
   // So to fix this error, we have to do something called short-circuiting(&&).
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
   console.log(pokemon);
+  // console.log(pokemon.name);
+
   return (
     <div>
       <div>
-        {pokemon.map((poke, i) => {
-          return <PokemonCard key={i} pokemon={poke} />;
-        })}
+        {pokemon &&
+          pokemon.map((pokemon, index) => {
+            return <PokemonCard key={index} {...pokemon} />;
+          })}
       </div>
     </div>
   );
