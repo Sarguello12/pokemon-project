@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const PokemonNum = (props) => {
-  let num = props;
+  let originalNum = props.num;
 
-  if (props < 10) {
-    num = "00" + props;
-  } else if (props < 100) {
-    num = "0" + props;
-  }
-  console.log(props);
-  //   return <p>{num}</p>;
+  const [pokemonNum, setPokemonNum] = useState(originalNum);
+
+  useEffect(() => {
+    if (originalNum < 10) {
+      setPokemonNum("00" + originalNum);
+    } else if (originalNum < 100) {
+      setPokemonNum("0" + originalNum);
+    }
+  });
+
+  return <p>#{pokemonNum}</p>;
 };
 
 export default PokemonNum;
