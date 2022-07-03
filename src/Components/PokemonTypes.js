@@ -6,9 +6,11 @@ const PokemonTypes = (props) => {
       {props.types.map((type, index) => {
         return (
           <div>
-            <p key={index} className={type.type.name}>
-              {type.type.name}
-            </p>
+            <div className="type-card">
+              <p key={index} className={type.type.name}>
+                {type.type.name}
+              </p>
+            </div>
           </div>
         );
       })}
