@@ -27,16 +27,23 @@ const PokemonList = () => {
     setPokemon(pokemonData);
   };
 
+  // const childRef = React.forwardRef();
+  const [isShiny, setIsShiny] = useState(false);
+
+  const handleClick = () => {
+    setIsShiny(true);
+  };
+
   // state updates happen asynchronously, meaning that updating state does not stop the rest of the application from rendering and running smoothly.
   // So to fix this error, we have to do something called short-circuiting(&&).
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
   return (
     <div>
-      <button>Shiny</button>
+      <button onClick={handleClick}>Shiny</button>
       <div className="pokemon-container">
         {pokemon &&
           pokemon.map((pokemon, index) => {
-            return <PokemonCard key={index} {...pokemon} />;
+            return <PokemonCard key={index} {...pokemon} isShiny={isShiny} />;
           })}
       </div>
     </div>

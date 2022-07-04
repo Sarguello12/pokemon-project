@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import PokemonNum from "./PokemonNum";
 import PokemonTypes from "./PokemonTypes";
 import "./PokemonCard.css";
 
-const PokemonCard = (props) => {
-  let shiny = false;
+const PokemonCard = (props, { isShiny }) => {
+  //   const [isShiny, setIsShiny] = useState(false);
+
+  //   const showShiny = () => {
+  //     setIsShiny(true);
+  //   };
 
   return (
     <div className="pokemon-card">
       <img
         src={
-          shiny === false
+          `${isShiny}` === false
             ? props.sprites.front_default
             : props.sprites.front_shiny
         }
