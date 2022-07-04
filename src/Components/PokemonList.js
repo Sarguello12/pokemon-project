@@ -32,6 +32,7 @@ const PokemonList = () => {
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
   return (
     <div>
+      <button>Shiny</button>
       <div className="pokemon-container">
         {pokemon &&
           pokemon.map((pokemon, index) => {
