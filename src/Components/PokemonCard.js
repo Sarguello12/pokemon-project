@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState, useImperativeHandle } from "react";
 import PokemonNum from "./PokemonNum";
 import PokemonTypes from "./PokemonTypes";
 import "./PokemonCard.css";
 
-const PokemonCard = (props, { isShiny }) => {
-  //   const [isShiny, setIsShiny] = useState(false);
+const PokemonCard = forwardRef((props, ref) => {
+  const [isShiny, setIsShiny] = useState(false);
+  //   let isShiny = false;
 
-  //   const showShiny = () => {
-  //     setIsShiny(true);
-  //   };
+  //useImperativeHandle hook accepts 2 mandatory parameters, the first is the reference and the second is the initialization function
+  useImperativeHandle(ref, () => ({
+    ShowShiny() {
+      //TODO useEffect in the handler is causing the issue cant call a hook inside
+
+      setIsShiny(true);
+    },
+  }));
 
   return (
     <div className="pokemon-card">
       <img
         src={
-          `${isShiny}` === false
+          isShiny === false
             ? props.sprites.front_default
             : props.sprites.front_shiny
         }
@@ -24,6 +30,6 @@ const PokemonCard = (props, { isShiny }) => {
       <PokemonTypes types={props.types} />
     </div>
   );
-};
+});
 
 export default PokemonCard;

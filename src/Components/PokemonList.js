@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PokemonCard from "./PokemonCard";
 import { getPokemon, getPokemonDetails } from "../services/GetPokemon";
 import "./PokemonList.css";
@@ -27,11 +27,10 @@ const PokemonList = () => {
     setPokemon(pokemonData);
   };
 
-  // const childRef = React.forwardRef();
-  const [isShiny, setIsShiny] = useState(false);
+  const cardRef = useRef();
 
   const handleClick = () => {
-    setIsShiny(true);
+    cardRef.current.ShowShiny();
   };
 
   // state updates happen asynchronously, meaning that updating state does not stop the rest of the application from rendering and running smoothly.
@@ -43,7 +42,7 @@ const PokemonList = () => {
       <div className="pokemon-container">
         {pokemon &&
           pokemon.map((pokemon, index) => {
-            return <PokemonCard key={index} {...pokemon} isShiny={isShiny} />;
+            return <PokemonCard key={index} {...pokemon} ref={cardRef} />;
           })}
       </div>
     </div>
