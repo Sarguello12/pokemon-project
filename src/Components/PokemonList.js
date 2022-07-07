@@ -15,17 +15,18 @@ const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
   const [region, setRegion] = useState(kanto);
 
-  const URL = `https://pokeapi.co/api/v2/pokemon?${region}`;
-
   useEffect(() => {
     const fetchPokemon = async () => {
-      let response = await getPokemonDetails(URL);
+      let response = await getPokemonDetails(
+        `https://pokeapi.co/api/v2/pokemon?${region}`
+      );
       await populatePokemon(response.results);
     };
     fetchPokemon();
     // Notice the empty array following the useEffect call. Note that the useEffect runs for both a component mounting and updating.
     // If you do not pass a dependency array into useEffect it will continuously update. If you pass an empty dependency array into the call it will only run once on component mount.
-  }, []);
+    // UPDATE: changed to hold region state so useEffect will run when state is updated
+  }, [region]);
 
   const populatePokemon = async (data) => {
     let pokemonData = await Promise.all(
@@ -45,7 +46,6 @@ const PokemonList = () => {
 
   const handleChange = (event) => {
     setRegion(event.target.value);
-    console.log(event.target.value);
   };
 
   // state updates happen asynchronously, meaning that updating state does not stop the rest of the application from rendering and running smoothly.
