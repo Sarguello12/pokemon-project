@@ -48,7 +48,6 @@ const PokemonList = () => {
   return (
     <div>
       <div className="nav">
-        <div></div>
         <div>
           <img src="https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo.png" />
         </div>
@@ -75,6 +74,12 @@ const PokemonList = () => {
             pokemon.map((pokemon, index) => {
               return <PokemonCard key={index} {...pokemon} />;
             })}
+        </div>
+      </div>
+
+      <div className="footer">
+        <div className="lil-footer">
+          {/* will include pagination to hop between regions */}
         </div>
       </div>
     </div>

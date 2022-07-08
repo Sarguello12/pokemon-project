@@ -58,3 +58,16 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.footer {
+  height: 75px;
+  background-color: #616161;
+  display: flex;
+  justify-content: center;
+}
+
+.lil-footer {
+  width: 400px;
+  height: 100px;
+  background-color: #616161;
+}
