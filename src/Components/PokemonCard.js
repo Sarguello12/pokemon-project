@@ -13,12 +13,13 @@ const PokemonCard = forwardRef((props, ref) => {
   //   },
   // }));
 
-  const showShiny = React.forwardRef((props, ref) => {
-    console.log("shiny");
-  });
+  const handleClick = () => {
+    setIsShiny(true);
+  };
 
   return (
     <div className="pokemon-card">
+      <button onClick={handleClick}>Shiny</button>
       <img
         src={
           isShiny === false
