@@ -15,6 +15,7 @@ const PokemonCard = forwardRef((props) => {
   return (
     <div className="pokemon-card">
       <PokemonNum num={props.id} />
+      {/* <p>{props.id}</p> */}
       <img
         src={
           isShiny === false
