@@ -51,5 +51,10 @@
   margin-top: 30px;
   padding: 10px;
   display: flex;
+}
+
+.pokemon {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }

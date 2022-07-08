@@ -70,10 +70,12 @@ const PokemonList = () => {
         </div>
       </div>
       <div className="pokemon-container">
-        {pokemon &&
-          pokemon.map((pokemon, index) => {
-            return <PokemonCard key={index} {...pokemon} />;
-          })}
+        <div className="pokemon">
+          {pokemon &&
+            pokemon.map((pokemon, index) => {
+              return <PokemonCard key={index} {...pokemon} />;
+            })}
+        </div>
       </div>
     </div>
   );

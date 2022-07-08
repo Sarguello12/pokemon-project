@@ -2,18 +2,20 @@ import React, { forwardRef, useState } from "react";
 import PokemonNum from "./PokemonNum";
 import PokemonTypes from "./PokemonTypes";
 import "./PokemonCard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandSparkles } from "@fortawesome/free-solid-svg-icons";
 
 const PokemonCard = forwardRef((props) => {
   const [isShiny, setIsShiny] = useState(false);
 
-  const handleClick = (event) => {
-    event.preventDefault();
+  const handleClick = () => {
     isShiny === false ? setIsShiny(true) : setIsShiny(false);
   };
 
   return (
     <div className="pokemon-card">
-      <button onClick={handleClick}>Shiny</button>
+      <PokemonNum num={props.id} />
+
       <img
         src={
           isShiny === false
@@ -21,8 +23,8 @@ const PokemonCard = forwardRef((props) => {
             : props.sprites.front_shiny
         }
       />
+      <FontAwesomeIcon icon={faHandSparkles} onClick={handleClick} />
       <h3>{props.name}</h3>
-      <PokemonNum num={props.id} />
       <PokemonTypes types={props.types} />
     </div>
   );

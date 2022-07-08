@@ -13,7 +13,7 @@ const PokemonNum = (props) => {
     }
   });
 
-  return <p className={pokemonNum}>#{pokemonNum}</p>;
+  return <p className={`${pokemonNum} poke-num`}>#{pokemonNum}</p>;
 };
 
 export default PokemonNum;
