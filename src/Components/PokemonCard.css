@@ -1,6 +1,6 @@
 .pokemon-card {
   background: white;
-  border: 1px solid #616161;
+  border: 2px solid #616161;
   border-radius: 10px;
   width: 150px;
   text-align: center;
@@ -12,6 +12,37 @@
   background-color: #616161;
   color: #ffffff;
   font-weight: bold;
+}
+
+.shiny-icon {
+  color: #616161;
+}
+
+.shiny-icon:hover {
+  color: black;
+}
+
+.shiny-icon:active {
+  color: #ffcb05;
+}
+
+.pokemon-card__name {
+  margin-top: 10px;
+  border-top: 1px solid #616161;
+  background-color: #cbcbcb;
+  height: 30px;
+  margin-bottom: 0;
+}
+
+.info {
+  height: 75px;
+  background-color: #e9e9ed;
+  padding-top: 15px;
+}
+
+.info ul,
+p {
+  margin-top: 0;
 }
 
 .type-card {

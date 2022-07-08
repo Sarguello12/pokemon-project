@@ -5,11 +5,9 @@ const PokemonTypes = (props) => {
     <ul>
       {props.types.map((type, index) => {
         return (
-          <div>
+          <div key={index}>
             <div className="type-card">
-              <p key={index} className={`${type.type.name} type`}>
-                {type.type.name}
-              </p>
+              <p className={`${type.type.name} type`}>{type.type.name}</p>
             </div>
           </div>
         );

@@ -15,7 +15,6 @@ const PokemonCard = forwardRef((props) => {
   return (
     <div className="pokemon-card">
       <PokemonNum num={props.id} />
-
       <img
         src={
           isShiny === false
@@ -23,9 +22,15 @@ const PokemonCard = forwardRef((props) => {
             : props.sprites.front_shiny
         }
       />
-      <FontAwesomeIcon icon={faHandSparkles} onClick={handleClick} />
-      <h3>{props.name}</h3>
-      <PokemonTypes types={props.types} />
+      <FontAwesomeIcon
+        icon={faHandSparkles}
+        onClick={handleClick}
+        className="shiny-icon"
+      />
+      <h3 className="pokemon-card__name">{props.name}</h3>
+      <div className="info">
+        <PokemonTypes types={props.types} />
+      </div>
     </div>
   );
 });
