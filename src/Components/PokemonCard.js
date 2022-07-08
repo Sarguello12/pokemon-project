@@ -3,18 +3,12 @@ import PokemonNum from "./PokemonNum";
 import PokemonTypes from "./PokemonTypes";
 import "./PokemonCard.css";
 
-const PokemonCard = forwardRef((props, ref) => {
+const PokemonCard = forwardRef((props) => {
   const [isShiny, setIsShiny] = useState(false);
 
-  //useImperativeHandle hook accepts 2 mandatory parameters, the first is the reference and the second is the initialization function
-  // useImperativeHandle(ref, () => ({
-  //   ShowShiny() {
-  //     console.log("shiny");
-  //   },
-  // }));
-
-  const handleClick = () => {
-    setIsShiny(true);
+  const handleClick = (event) => {
+    event.preventDefault();
+    isShiny === false ? setIsShiny(true) : setIsShiny(false);
   };
 
   return (

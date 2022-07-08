@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
 import { getPokemon, getPokemonDetails } from "../services/GetPokemon";
 import "./PokemonList.css";
@@ -38,12 +38,6 @@ const PokemonList = () => {
     setPokemon(pokemonData);
   };
 
-  const cardRef = useRef();
-
-  // const handleClick = () => {
-  //   cardRef.current.showShiny();
-  // };
-
   const handleChange = (event) => {
     setRegion(event.target.value);
   };
@@ -53,22 +47,32 @@ const PokemonList = () => {
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
   return (
     <div>
-      <div>
-        {/* <button onClick={handleClick}>Shiny</button> */}
-        <select value={region} onChange={handleChange}>
-          <option value={kanto}>Kanto</option>
-          <option value={johto}>Johto</option>
-          <option value={hoenn}>Hoenn</option>
-          <option value={sinnoh}>Sinnoh</option>
-          <option value={unova}>Unova</option>
-          <option value={kalos}>Kalos</option>
-          <option value={alola}>Alola</option>
-        </select>
+      <div className="nav">
+        <div></div>
+        <div>
+          <img src="https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo.png" />
+        </div>
+      </div>
+      <div className="nav2">
+        <div className="nav2__lil">
+          <p>Search by region</p>
+          <div className="custom-select">
+            <select value={region} onChange={handleChange}>
+              <option value={kanto}>Kanto</option>
+              <option value={johto}>Johto</option>
+              <option value={hoenn}>Hoenn</option>
+              <option value={sinnoh}>Sinnoh</option>
+              <option value={unova}>Unova</option>
+              <option value={kalos}>Kalos</option>
+              <option value={alola}>Alola</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div className="pokemon-container">
         {pokemon &&
           pokemon.map((pokemon, index) => {
-            return <PokemonCard key={index} {...pokemon} ref={cardRef} />;
+            return <PokemonCard key={index} {...pokemon} />;
           })}
       </div>
     </div>
