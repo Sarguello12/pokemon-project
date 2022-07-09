@@ -81,11 +81,23 @@
 }
 
 .pagination {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .pagination a {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: lime;
+  color: #ffffff;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ffffff;
+  color: #616161;
 }
