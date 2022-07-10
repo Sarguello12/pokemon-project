@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import PokemonNum from "./PokemonNum";
 import PokemonTypes from "./PokemonTypes";
-import "./PokemonCard.css";
+import "./PokemonCard.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandSparkles } from "@fortawesome/free-solid-svg-icons";
 

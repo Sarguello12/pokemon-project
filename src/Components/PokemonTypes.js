@@ -7,7 +7,7 @@ const PokemonTypes = (props) => {
         return (
           <div key={index}>
             <div className="type-card">
-              <p className={`${type.type.name} type`}>{type.type.name}</p>
+              <p className={`${type.type.name}`}>{type.type.name}</p>
             </div>
           </div>
         );
