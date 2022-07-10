@@ -42,6 +42,32 @@ const PokemonList = () => {
     setRegion(event.target.value);
   };
 
+  const handlePagination = (value) => {
+    switch (value) {
+      case 1:
+        setRegion(kanto);
+        break;
+      case 2:
+        setRegion(johto);
+        break;
+      case 3:
+        setRegion(hoenn);
+        break;
+      case 4:
+        setRegion(sinnoh);
+        break;
+      case 5:
+        setRegion(unova);
+        break;
+      case 6:
+        setRegion(kalos);
+        break;
+      case 7:
+        setRegion(alola);
+        break;
+    }
+  };
+
   // state updates happen asynchronously, meaning that updating state does not stop the rest of the application from rendering and running smoothly.
   // So to fix this error, we have to do something called short-circuiting(&&).
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
@@ -79,16 +105,16 @@ const PokemonList = () => {
 
       <div className="footer">
         <div className="lil-footer">
-          <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">7</a>
-            <a href="#">&raquo;</a>
+          <div className="pagination">
+            <a>&laquo;</a>
+            <a onClick={() => handlePagination(1)}>1</a>
+            <a onClick={() => handlePagination(2)}>2</a>
+            <a onClick={() => handlePagination(3)}>3</a>
+            <a onClick={() => handlePagination(4)}>4</a>
+            <a onClick={() => handlePagination(5)}>5</a>
+            <a onClick={() => handlePagination(6)}>6</a>
+            <a onClick={() => handlePagination(7)}>7</a>
+            <a>&raquo;</a>
           </div>
         </div>
       </div>
