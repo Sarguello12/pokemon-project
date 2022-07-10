@@ -46,24 +46,97 @@ const PokemonList = () => {
     switch (value) {
       case 1:
         setRegion(kanto);
+        window.scrollTo(0, 0);
         break;
       case 2:
         setRegion(johto);
+        window.scrollTo(0, 0);
         break;
       case 3:
         setRegion(hoenn);
+        window.scrollTo(0, 0);
         break;
       case 4:
         setRegion(sinnoh);
+        window.scrollTo(0, 0);
         break;
       case 5:
         setRegion(unova);
+        window.scrollTo(0, 0);
         break;
       case 6:
         setRegion(kalos);
+        window.scrollTo(0, 0);
         break;
       case 7:
         setRegion(alola);
+        window.scrollTo(0, 0);
+        break;
+    }
+  };
+
+  const handleFoward = () => {
+    switch (region) {
+      case kanto:
+        setRegion(johto);
+        window.scrollTo(0, 0);
+        break;
+      case johto:
+        setRegion(hoenn);
+        window.scrollTo(0, 0);
+        break;
+      case hoenn:
+        setRegion(sinnoh);
+        window.scrollTo(0, 0);
+        break;
+      case sinnoh:
+        setRegion(unova);
+        window.scrollTo(0, 0);
+        break;
+      case unova:
+        setRegion(kalos);
+        window.scrollTo(0, 0);
+        break;
+      case kalos:
+        setRegion(alola);
+        window.scrollTo(0, 0);
+        break;
+      case alola:
+        setRegion(kanto);
+        window.scrollTo(0, 0);
+        break;
+    }
+  };
+
+  const handlePrevious = () => {
+    switch (region) {
+      case kanto:
+        setRegion(alola);
+        window.scrollTo(0, 0);
+        break;
+      case johto:
+        setRegion(kanto);
+        window.scrollTo(0, 0);
+        break;
+      case hoenn:
+        setRegion(johto);
+        window.scrollTo(0, 0);
+        break;
+      case sinnoh:
+        setRegion(hoenn);
+        window.scrollTo(0, 0);
+        break;
+      case unova:
+        setRegion(sinnoh);
+        window.scrollTo(0, 0);
+        break;
+      case kalos:
+        setRegion(unova);
+        window.scrollTo(0, 0);
+        break;
+      case alola:
+        setRegion(kalos);
+        window.scrollTo(0, 0);
         break;
     }
   };
@@ -106,7 +179,7 @@ const PokemonList = () => {
       <div className="footer">
         <div className="lil-footer">
           <div className="pagination">
-            <a>&laquo;</a>
+            <a onClick={handlePrevious}>&laquo;</a>
             <a onClick={() => handlePagination(1)}>1</a>
             <a onClick={() => handlePagination(2)}>2</a>
             <a onClick={() => handlePagination(3)}>3</a>
@@ -114,7 +187,7 @@ const PokemonList = () => {
             <a onClick={() => handlePagination(5)}>5</a>
             <a onClick={() => handlePagination(6)}>6</a>
             <a onClick={() => handlePagination(7)}>7</a>
-            <a>&raquo;</a>
+            <a onClick={handleFoward}>&raquo;</a>
           </div>
         </div>
       </div>
