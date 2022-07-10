@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
 import { getPokemon, getPokemonDetails } from "../services/GetPokemon";
-import "./PokemonList.css";
+import "./PokemonList.scss";
 
 const kanto = "limit=151";
 const johto = "limit=100&offset=151";
@@ -154,17 +154,16 @@ const PokemonList = () => {
       <div className="nav2">
         <div className="nav2__lil">
           <p>Search by region</p>
-          <div className="custom-select">
-            <select value={region} onChange={handleChange}>
-              <option value={kanto}>Kanto</option>
-              <option value={johto}>Johto</option>
-              <option value={hoenn}>Hoenn</option>
-              <option value={sinnoh}>Sinnoh</option>
-              <option value={unova}>Unova</option>
-              <option value={kalos}>Kalos</option>
-              <option value={alola}>Alola</option>
-            </select>
-          </div>
+
+          <select value={region} onChange={handleChange}>
+            <option value={kanto}>Kanto</option>
+            <option value={johto}>Johto</option>
+            <option value={hoenn}>Hoenn</option>
+            <option value={sinnoh}>Sinnoh</option>
+            <option value={unova}>Unova</option>
+            <option value={kalos}>Kalos</option>
+            <option value={alola}>Alola</option>
+          </select>
         </div>
       </div>
       <div className="pokemon-container">

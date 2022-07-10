@@ -1,0 +1,102 @@
+$nav-color: #313131;
+$primary-color1: #616161;
+$primary-color2: #cbcbcb;
+$primary-color3: #e9e9ed;
+$text-color: #ffffff;
+
+.nav {
+  background-color: $nav-color;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+
+  img {
+    height: 130px;
+    width: 200px;
+  }
+}
+
+.nav2 {
+  margin-top: 90px;
+  height: 50px;
+  background-color: $primary-color1;
+  display: flex;
+  justify-content: center;
+
+  div {
+    width: 400px;
+    height: 75px;
+    background-color: $primary-color1;
+    border-radius: 35px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $text-color;
+    margin-right: 10px;
+  }
+
+  select {
+    height: 25px;
+    margin-bottom: 13px;
+  }
+}
+
+.pokemon-container {
+  margin-top: 30px;
+  margin-bottom: 75px;
+  padding: 10px;
+  display: flex;
+
+  .pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.footer {
+  height: 50px;
+  background-color: $primary-color1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+  .lil-footer {
+    width: 500px;
+    height: 85px;
+    background-color: #616161;
+    border-radius: 35px 35px;
+    display: flex;
+    justify-content: center;
+
+    div {
+      margin-top: 15px;
+    }
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      transition: background-color 0.3s;
+    }
+
+    a:hover {
+      background-color: $text-color;
+      color: $primary-color1;
+    }
+  }
+}
