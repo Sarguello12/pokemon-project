@@ -98,5 +98,10 @@ $text-color: #ffffff;
       background-color: $text-color;
       color: $primary-color1;
     }
+
+    a:focus {
+      background-color: #313131;
+      color: $text-color;
+    }
   }
 }
