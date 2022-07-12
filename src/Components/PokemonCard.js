@@ -10,6 +10,7 @@ const PokemonCard = forwardRef((props) => {
 
   const handleClick = () => {
     isShiny === false ? setIsShiny(true) : setIsShiny(false);
+    localStorage.setItem("name", "pokemon");
   };
 
   return (

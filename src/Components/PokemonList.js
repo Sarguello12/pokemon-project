@@ -3,22 +3,24 @@ import PokemonCard from "./PokemonCard";
 import { getPokemon, getPokemonDetails } from "../services/GetPokemon";
 import "./PokemonList.scss";
 
-const kanto = "limit=151";
-const johto = "limit=100&offset=151";
-const hoenn = "limit=135&offset=251";
-const sinnoh = "limit=108&offset=386";
-const unova = "limit=155&offset=494";
-const kalos = "limit=72&offset=721";
-const alola = "limit=81&offset=809";
+const kanto = "?limit=151";
+const johto = "?limit=100&offset=151";
+const hoenn = "?limit=135&offset=251";
+const sinnoh = "?limit=108&offset=386";
+const unova = "?limit=155&offset=494";
+const kalos = "?limit=72&offset=721";
+const alola = "?limit=81&offset=809";
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
   const [region, setRegion] = useState(kanto);
+  const [wasSearched, setWasSearched] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchPokemon = async () => {
       let response = await getPokemonDetails(
-        `https://pokeapi.co/api/v2/pokemon?${region}`
+        `https://pokeapi.co/api/v2/pokemon${region}`
       );
       await populatePokemon(response.results);
     };
@@ -35,6 +37,7 @@ const PokemonList = () => {
         return pokemonGet;
       })
     );
+    setWasSearched(false);
     setPokemon(pokemonData);
   };
 
@@ -141,6 +144,22 @@ const PokemonList = () => {
     }
   };
 
+  const searchChangeHandler = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    let searchUrl = `https://pokeapi.co/api/v2/pokemon/${search}`;
+
+    fetch(searchUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setWasSearched(true);
+        setPokemon(data);
+      });
+  };
+
   // state updates happen asynchronously, meaning that updating state does not stop the rest of the application from rendering and running smoothly.
   // So to fix this error, we have to do something called short-circuiting(&&).
   // Basically, we have to first check if the pokemon object is populated and then we can call to it.
@@ -154,7 +173,6 @@ const PokemonList = () => {
       <div className="nav2">
         <div className="nav2__lil">
           <p>Search by region</p>
-
           <select value={region} onChange={handleChange}>
             <option value={kanto}>Kanto</option>
             <option value={johto}>Johto</option>
@@ -164,14 +182,22 @@ const PokemonList = () => {
             <option value={kalos}>Kalos</option>
             <option value={alola}>Alola</option>
           </select>
+          <form onSubmit={submitHandler}>
+            <label>Search by Pokemon:</label>
+            <input type="text" onChange={searchChangeHandler}></input>
+            <button type="submit">Search</button>
+          </form>
         </div>
       </div>
       <div className="pokemon-container">
         <div className="pokemon">
-          {pokemon &&
+          {wasSearched === false ? (
             pokemon.map((pokemon, index) => {
               return <PokemonCard key={index} {...pokemon} />;
-            })}
+            })
+          ) : (
+            <PokemonCard {...pokemon} />
+          )}
         </div>
       </div>
 
