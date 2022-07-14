@@ -30,24 +30,24 @@ $text-color: #ffffff;
 
   div {
     width: 400px;
-    height: 75px;
+    height: 90px;
     background-color: $primary-color1;
     border-radius: 35px 35px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-  }
 
-  p {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $text-color;
-    margin-right: 10px;
-  }
+    p {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $text-color;
+      margin-right: 10px;
+    }
 
-  select {
-    height: 25px;
-    margin-bottom: 13px;
+    select {
+      height: 25px;
+      margin-bottom: 13px;
+    }
   }
 }
 
@@ -71,7 +71,7 @@ $text-color: #ffffff;
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  bottom: 0;  
+  bottom: 0;
   width: 100%;
 
   .lil-footer {

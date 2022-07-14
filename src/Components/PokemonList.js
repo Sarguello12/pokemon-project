@@ -157,6 +157,9 @@ const PokemonList = () => {
       .then((data) => {
         setWasSearched(true);
         setPokemon(data);
+      })
+      .catch(() => {
+        alert("Hm.. can find any pokemon by that name!");
       });
   };
 
