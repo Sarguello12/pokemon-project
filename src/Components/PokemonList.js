@@ -175,21 +175,25 @@ const PokemonList = () => {
       </div>
       <div className="nav2">
         <div className="nav2__lil">
-          <p>Search by region</p>
-          <select value={region} onChange={handleChange}>
-            <option value={kanto}>Kanto</option>
-            <option value={johto}>Johto</option>
-            <option value={hoenn}>Hoenn</option>
-            <option value={sinnoh}>Sinnoh</option>
-            <option value={unova}>Unova</option>
-            <option value={kalos}>Kalos</option>
-            <option value={alola}>Alola</option>
-          </select>
-          <form onSubmit={submitHandler}>
-            <label>Search by Pokemon:</label>
-            <input type="text" onChange={searchChangeHandler}></input>
-            <button type="submit">Search</button>
-          </form>
+          <div className="region">
+            <p>Search by region</p>
+            <select value={region} onChange={handleChange}>
+              <option value={kanto}>Kanto</option>
+              <option value={johto}>Johto</option>
+              <option value={hoenn}>Hoenn</option>
+              <option value={sinnoh}>Sinnoh</option>
+              <option value={unova}>Unova</option>
+              <option value={kalos}>Kalos</option>
+              <option value={alola}>Alola</option>
+            </select>
+          </div>
+          <div className="search">
+            <form onSubmit={submitHandler}>
+              <label>Search by Pokemon:</label>
+              <input type="text" onChange={searchChangeHandler}></input>
+              <button type="submit">Search</button>
+            </form>
+          </div>
         </div>
       </div>
       <div className="pokemon-container">

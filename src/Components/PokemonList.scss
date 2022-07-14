@@ -29,15 +29,24 @@ $text-color: #ffffff;
   justify-content: center;
 
   div {
-    width: 400px;
+    width: 500px;
     height: 90px;
     background-color: $primary-color1;
     border-radius: 35px 35px;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
 
-    p {
+    align-items: center;
+
+    .region {
+      margin: 5px;
+    }
+
+    .search {
+      margin: 5px;
+    }
+
+    p,
+    label {
       text-transform: uppercase;
       font-weight: bold;
       color: $text-color;
