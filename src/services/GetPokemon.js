@@ -18,4 +18,3 @@ export const getPokemonDetails = async (url) => {
   });
 };
 
-console.log("heelo world");
